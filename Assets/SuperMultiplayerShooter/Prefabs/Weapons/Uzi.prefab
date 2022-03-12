@@ -44,7 +44,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -72,7 +71,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 785899667
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 549f8e1b883a7724fb28d2ce6ea73ec3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,10 +99,10 @@ MonoBehaviour:
   damage: 18
   ammo: 19
   rateOfFire: 12.28
-  numberOfProjectilesPerShot: 1
-  projectileSpeed: 36
-  projectileAcceleration: 0
-  spread: 0
+  numberOfProjectilesPerShot: 2
+  projectileSpeed: 20
+  projectileAcceleration: 15
+  spread: 15
   destroyProjectileWhenOwnerDies: 0
   sightRange: 2
   kickbackAmount: 0.1
@@ -163,7 +162,6 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -191,7 +189,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1705535415
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cbab606431a32494f8ce6c9d2d91fe7a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

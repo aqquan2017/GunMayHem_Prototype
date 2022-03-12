@@ -233,12 +233,12 @@ MonoBehaviour:
   ammo: 7
   rateOfFire: 0.5
   numberOfProjectilesPerShot: 1
-  projectileSpeed: 90
-  projectileAcceleration: 0
+  projectileSpeed: 20
+  projectileAcceleration: 15
   spread: 0
   destroyProjectileWhenOwnerDies: 0
   sightRange: 4
-  kickbackAmount: 0.7
+  kickbackAmount: 1
   projectileLifetime: 0
   shoot:
   - {fileID: 8300000, guid: 69255445e54a9f64cbeab516c3d9da1b, type: 3}
