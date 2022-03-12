@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -15,8 +16,7 @@ MonoBehaviour:
   maxHealth: 100
   moveSpeed: 47
   jumpForce: 12
-  startingWeapon: {fileID: 114245578955462002, guid: e8a42a28840df5e4c9eb9f6249ae16b9,
-    type: 2}
+  startingWeapon: {fileID: 114469809127564400, guid: 066bf578910ef744e8e4f95d30b8202d, type: 3}
   grenades: 4
   footstepSFX:
   - {fileID: 8300000, guid: 2f2ae353f829db849a92c517458af669, type: 3}
