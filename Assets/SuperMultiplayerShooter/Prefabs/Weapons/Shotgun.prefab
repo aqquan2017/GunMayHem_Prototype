@@ -203,8 +203,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 785899667
-  m_SortingLayer: 0
+  m_SortingLayerID: 1260923577
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 630a6384a3654c440995427346d0bd33, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -239,6 +239,8 @@ MonoBehaviour:
   destroyProjectileWhenOwnerDies: 0
   sightRange: 1
   kickbackAmount: 0.8
+  playerKickBackAmount: 0.1
+  enemyKickBackAmount: 0.1
   projectileLifetime: 0.1
   shoot:
   - {fileID: 8300000, guid: ffc4288ea48c28c458f1e8ffbdaeba88, type: 3}
