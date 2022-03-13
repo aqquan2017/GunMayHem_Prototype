@@ -509,6 +509,19 @@ namespace Visyde
             if (character.data.landingsSFX.Length > 0) aus.PlayOneShot(character.data.landingsSFX[Random.Range(0, character.data.landingsSFX.Length)]);
         }
 
+        public void ApplyRecoilCommand(float recoilSpeed)
+        {
+            photonView.RPC("ApplyRecoil", RpcTarget.All, recoilSpeed);
+        }
+        
+        [PunRPC]
+        public void ApplyRecoil(float recoilSpeed)
+        {
+            Vector2 gunDirection = (nMousePos - transform.position).normalized;
+            movementController.ApplyForce(-gunDirection * recoilSpeed);
+
+        }
+        
         public void OwnerShootCommand(){
             photonView.RPC("Shoot", RpcTarget.All, mousePos, movementController.position, movementController.velocity);
         }

@@ -238,9 +238,9 @@ MonoBehaviour:
   spread: 5
   destroyProjectileWhenOwnerDies: 0
   sightRange: 2
-  kickbackAmount: 0.3
-  playerKickBackAmount: 0.1
-  enemyKickBackAmount: 0.1
+  kickbackAmount: 0.1
+  playerKickBackAmount: 0.3
+  enemyKickBackAmount: 5
   projectileLifetime: 0
   shoot:
   - {fileID: 8300000, guid: 3409623849ba72a408a5670c649fbcff, type: 3}

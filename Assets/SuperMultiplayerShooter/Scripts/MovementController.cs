@@ -16,13 +16,10 @@ namespace Visyde
     [RequireComponent(typeof(Rigidbody2D))]
     public class MovementController : MonoBehaviour
     {
-        [Header("Settings:")]
-        public float groundCheckerRadius;
+        [Header("Settings:")] public float groundCheckerRadius;
         public Vector2 groundCheckerOffset;
 
-        [Space]
-        [Header("References:")]
-        [SerializeField]
+        [Space] [Header("References:")] [SerializeField]
         private Rigidbody2D rg;
 
         // The movement speed and jump force doesn't need to be set manually 
@@ -33,19 +30,34 @@ namespace Visyde
         [HideInInspector] public bool isMine;
         public bool allowJump { get; protected set; }
 
-        public bool hasRigidbody { get { return rg; } }
-        Vector2 m;  // movement
-        public Vector2 movement { get { return m; }}
-        public Vector2 velocity {
-            get {
-                Vector2 final = rg? rg.velocity : Vector2.zero;
+        public bool hasRigidbody
+        {
+            get { return rg; }
+        }
+
+        private Vector2 m; // movement
+        private float forceTime = 0.2f; // movement
+        
+        public Vector2 movement
+        {
+            get { return m; }
+        }
+
+        public Vector2 velocity
+        {
+            get
+            {
+                Vector2 final = rg ? rg.velocity : Vector2.zero;
                 return final;
             }
-            set{
+            set
+            {
                 if (rg) rg.velocity = value;
             }
         }
-        public Vector2 position {
+
+        public Vector2 position
+        {
             get
             {
                 Vector2 final = rg ? rg.position : Vector2.zero;
@@ -56,12 +68,14 @@ namespace Visyde
                 if (rg) rg.position = value;
             }
         }
+
         public bool isGrounded { get; protected set; }
 
         // Internal:
         float inputX;
 
-        void Awake(){
+        void Awake()
+        {
             if (!rg) rg = GetComponent<Rigidbody2D>();
         }
 
@@ -86,26 +100,41 @@ namespace Visyde
             // Check if grounded:
             allowJump = true;
             isGrounded = false;
-            Collider2D[] cols = Physics2D.OverlapCircleAll(groundCheckerOffset + new Vector2(transform.position.x, transform.position.y), groundCheckerRadius);
+            Collider2D[] cols = Physics2D.OverlapCircleAll(
+                groundCheckerOffset + new Vector2(transform.position.x, transform.position.y), groundCheckerRadius);
             for (int i = 0; i < cols.Length; i++)
             {
-                if (cols[i].CompareTag("JumpPad")){
+                if (cols[i].CompareTag("JumpPad"))
+                {
                     allowJump = false;
                 }
+
                 if (cols[i].gameObject != gameObject && !cols[i].isTrigger && !cols[i].CompareTag("Portal"))
                 {
                     if (!isGrounded) isGrounded = true;
                 }
             }
+
+            forceTime -= Time.deltaTime;
         }
 
         void FixedUpdate()
         {
             if (isMine && rg)
             {
-                Vector2 veloc = rg.velocity;
-                veloc.x = movement.x * (moveSpeed / 10);
-                rg.velocity = veloc;
+                if (forceTime > 0f)
+                {
+                    Vector2 veloc = rg.velocity;
+                    veloc.x += movement.x * (moveSpeed / 10) * Time.fixedDeltaTime;
+                    rg.velocity = veloc;
+                }
+                else
+                {
+                    Vector2 veloc = rg.velocity;
+                    veloc.x = movement.x * (moveSpeed / 10);
+                    rg.velocity = veloc;
+                }
+                
             }
         }
 
@@ -125,8 +154,16 @@ namespace Visyde
             rg.velocity = veloc;
 
             // Don't allow jumping right after a jump:
-            allowJump = false;
+            //NOW ALLOW DOUBLE JUMP
+            //allowJump = false;
         }
+
+        public void ApplyForce(Vector2 direction){
+            if (!rg) return;
+            forceTime = 1f;
+            rg.AddForce(direction , ForceMode2D.Impulse);
+        }
+    
 
         public void DestroyRigidbody(){
             Destroy(this);

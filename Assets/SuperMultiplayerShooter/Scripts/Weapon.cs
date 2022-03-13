@@ -24,6 +24,8 @@ namespace Visyde
         public bool destroyProjectileWhenOwnerDies;
         public float sightRange = 3;                    // how far can the player see when handling this weapon
         public float kickbackAmount = 0.1f;				// how far/intense the rear movement of this weapon when fired
+        public float playerKickBackAmount = 0.1f;		// how far/intense the rear movement of player when fired
+        public float enemyKickBackAmount = 0.1f;		// how far/intense the rear movement of enemy when fired
         [Tooltip("0 = don't destroy")]
         public float projectileLifetime;
         [Header("Sounds:")]
@@ -144,6 +146,12 @@ namespace Visyde
             // Muzzle flash VFX:
             muzzleFlash.SetActive(false);
             muzzleFlash.SetActive(true);
+
+            //Kick back player (recoil)
+            owner.ApplyRecoilCommand(playerKickBackAmount);
+
         }
+
+       
     }
 }
