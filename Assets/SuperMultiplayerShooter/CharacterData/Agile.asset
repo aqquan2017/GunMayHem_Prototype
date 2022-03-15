@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Agile
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: f27e52ce438d5554abee1aaafc2dc979, type: 3}
-  maxHealth: 70
+  maxHealth: 10000
   moveSpeed: 55
   jumpForce: 12
   startingWeapon: {fileID: 114469809127564400, guid: 066bf578910ef744e8e4f95d30b8202d, type: 3}
-  grenades: 4
+  grenades: 3
   footstepSFX:
   - {fileID: 8300000, guid: 2f2ae353f829db849a92c517458af669, type: 3}
   - {fileID: 8300000, guid: 53e9511159d4c414f8ad73d3d2797b4b, type: 3}
