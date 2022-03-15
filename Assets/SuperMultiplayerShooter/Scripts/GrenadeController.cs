@@ -118,7 +118,7 @@ namespace Visyde
                                         // Calculate the damage based on distance:
                                         int finalDamage = Mathf.RoundToInt(damage * (1 - ((transform.position - new Vector3(hit.point.x, hit.point.y)).magnitude / radius)));
                                         // Apply damage:
-                                        p.ApplyDamage(owner.playerID, finalDamage, false);
+                                        p.ApplyDamage(owner.playerID, finalDamage, false, transform.right);
                                         break;
                                     }
                                 }

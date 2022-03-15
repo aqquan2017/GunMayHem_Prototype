@@ -67,7 +67,7 @@ namespace Visyde
                 if (keepVelocityAboveZero && curSpeed * xDir < 0) curSpeed = 0;
 
                 // Movement:
-                transform.Translate(transform.right * curSpeed * Time.deltaTime, Space.World);
+                transform.Translate(transform.right * (curSpeed * Time.deltaTime), Space.World);
 
                 // Face direction of movement (if allowed):
                 if (alwaysFaceMoveDirection) transform.localScale = new Vector3(curSpeed * xDir >= 0 ? xDir : -xDir, 1, 1);
@@ -192,7 +192,10 @@ namespace Visyde
                                         // Do vfx and damage if not:
                                         else
                                         {
-                                            if (thisIsMine) p.ApplyDamage(owner.playerID, weaponId, true);
+                                            if (thisIsMine)
+                                            {
+                                                p.ApplyDamage(owner.playerID, weaponId, true, (transform.right * curSpeed).normalized);
+                                            }
                                             // VFX
                                             pooler.Spawn(bodyHitVFX, hit.point);
                                         }
@@ -261,7 +264,7 @@ namespace Visyde
                                     // Calculate the damage based on distance:
                                     int finalDamage = Mathf.RoundToInt(GameManager.instance.maps[GameManager.instance.chosenMap].spawnableWeapons[weaponId].damage * (1 - ((transform.position - new Vector3(hit.point.x, hit.point.y)).magnitude / explosionRadius)));
                                     // Apply damage:
-                                    p.ApplyDamage(owner.playerID, finalDamage, false);
+                                    p.ApplyDamage(owner.playerID, finalDamage, false, (transform.right * curSpeed).normalized);
                                     break;
                                 }
                             }

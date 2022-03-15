@@ -91,8 +91,7 @@ MonoBehaviour:
   delay: 2.3
   impactSound: {fileID: 8300000, guid: 1029a9ccb230e9a498dec9d32ae27f2e, type: 3}
   aus: {fileID: 82597832079465918}
-  explosionEffect: {fileID: 1103505875146606, guid: 413a37c7772956f4daa4219c1093ca49,
-    type: 3}
+  explosionEffect: {fileID: 1103505875146606, guid: 413a37c7772956f4daa4219c1093ca49, type: 3}
   graphic: {fileID: 1951258859126350}
   rg: {fileID: 50510776567303904}
   owner:
@@ -215,10 +214,11 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 3
   OwnershipTransfer: 0
+  observableSearch: 0
   ObservedComponents:
   - {fileID: 114085804100523808}
   - {fileID: 114589466572930174}
-  viewIdField: 0
+  sceneViewId: 0
   InstantiationId: -1
   isRuntimeInstantiated: 0
 --- !u!114 &114589466572930174
@@ -236,6 +236,7 @@ MonoBehaviour:
   m_SynchronizePosition: 1
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 0
+  m_UseLocal: 0
 --- !u!1 &1951258859126350
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,6 +282,8 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -303,7 +306,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 785899667
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: d99eae5d1afe4e2488fc81d68d676cdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

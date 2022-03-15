@@ -26,6 +26,7 @@ namespace Visyde
         // as they will be overriden by the character data anyway:
         [HideInInspector] public float moveSpeed;
         [HideInInspector] public float jumpForce;
+        [HideInInspector] public float forceTime = 0.5f;
 
         [HideInInspector] public bool isMine;
         public bool allowJump { get; protected set; }
@@ -36,8 +37,7 @@ namespace Visyde
         }
 
         private Vector2 m; // movement
-        private float forceTime = 0.2f; // movement
-        
+
         public Vector2 movement
         {
             get { return m; }
@@ -126,7 +126,14 @@ namespace Visyde
                 {
                     Vector2 veloc = rg.velocity;
                     veloc.x += movement.x * (moveSpeed / 10) * Time.fixedDeltaTime;
+                    veloc.x = Mathf.Clamp(veloc.x, -4f, 4f);
                     rg.velocity = veloc;
+                    
+                    //clamp speed
+                    if (rg.velocity.x > 5f)
+                    {
+                       
+                    }
                 }
                 else
                 {
@@ -160,7 +167,7 @@ namespace Visyde
 
         public void ApplyForce(Vector2 direction){
             if (!rg) return;
-            forceTime = 1f;
+            forceTime = 0.5f;
             rg.AddForce(direction , ForceMode2D.Impulse);
         }
     

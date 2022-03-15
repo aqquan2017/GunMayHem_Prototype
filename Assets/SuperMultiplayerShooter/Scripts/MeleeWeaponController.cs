@@ -54,8 +54,8 @@ namespace Visyde
                             // Don't hurt self and the invulnerable:
                             if (p.playerInstance != ourPlayer.playerInstance && !p.invulnerable)
                             {
-                                p.photonView.RPC("Hurt", RpcTarget.All, ourPlayer.playerInstance.playerID, damage, false);
-
+                                //p.photonView.RPC("Hurt", RpcTarget.All, ourPlayer.playerInstance.playerID, damage, false); 
+                                p.ApplyDamage(ourPlayer.playerInstance.playerID , 0 ,false, transform.right);
                                 // VFX
                                 GameManager.instance.pooler.Spawn("BodyHit", p.transform.position);
                             }

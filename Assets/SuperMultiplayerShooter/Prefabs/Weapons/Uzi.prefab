@@ -102,10 +102,10 @@ MonoBehaviour:
   numberOfProjectilesPerShot: 2
   projectileSpeed: 20
   projectileAcceleration: 15
-  spread: 15
+  spread: 25
   destroyProjectileWhenOwnerDies: 0
   sightRange: 2
-  kickbackAmount: 0.1
+  weaponKickbackAmount: 0.1
   playerKickBackAmount: 0.1
   enemyKickBackAmount: 5
   projectileLifetime: 0

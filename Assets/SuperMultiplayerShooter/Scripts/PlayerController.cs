@@ -519,9 +519,17 @@ namespace Visyde
         {
             Vector2 gunDirection = (nMousePos - transform.position).normalized;
             movementController.ApplyForce(-gunDirection * recoilSpeed);
-
+        }
+        public void ApplyPullBackCommand(Vector2 fromDirection, float recoilSpeed)
+        {
+            photonView.RPC("ApplyPullBack", RpcTarget.All, fromDirection,recoilSpeed);
         }
         
+        [PunRPC]
+        public void ApplyPullBack(Vector2 fromDirection,float recoilSpeed)
+        {
+            movementController.ApplyForce(fromDirection * recoilSpeed);
+        }
         public void OwnerShootCommand(){
             photonView.RPC("Shoot", RpcTarget.All, mousePos, movementController.position, movementController.velocity);
         }
@@ -619,13 +627,13 @@ namespace Visyde
         /// Deal damage to player.
         /// </summary>
         /// <param name="fromPlayer">Damage dealer player name.</param>
-        /// <param name="value">Can be either a weapon id (if a gun was used) or a damage value (if melee attack or grenade).</param>
+        /// <param name="weaponID">Can be either a weapon id (if a gun was used) or a damage value (if melee attack or grenade).</param>
         /// <param name="gun">If set to <c>true</c>, "value" will be used as weapon id.</param>
-        public void ApplyDamage(int fromPlayer, int value, bool gun){
-            photonView.RPC("Hurt", RpcTarget.AllBuffered, fromPlayer, value, gun);
+        public void ApplyDamage(int fromPlayer, int weaponID, bool gun, Vector2 fromDirection){
+            photonView.RPC("Hurt", RpcTarget.AllBuffered, fromPlayer, weaponID, gun, fromDirection);
         }
         [PunRPC]
-        void Hurt(int fromPlayer, int value, bool gun)
+        void Hurt(int fromPlayer, int weaponID, bool gun, Vector2 fromDirection)
         {
             if (!gm.isGameOver)
             {
@@ -638,15 +646,21 @@ namespace Visyde
                     if (gun)
                     {
                         // Get the weapon used using the "value" parameter as weapon id (or if it's a negative value, then it's a character id):
-                        Weapon weaponUsed = value >= 0 ? gm.maps[gm.chosenMap].spawnableWeapons[value] : characters[value * -1 - 1].data.startingWeapon;
+                        Weapon weaponUsed = weaponID >= 0 ? gm.maps[gm.chosenMap].spawnableWeapons[weaponID] : characters[weaponID * -1 - 1].data.startingWeapon;
 
                         // ...then get the weapon's damage value:
                         finalDamage = weaponUsed.damage;
+                        
+                        //force back by gun bullet
+                        ApplyPullBackCommand(fromDirection, weaponUsed.enemyKickBackAmount);
                     }
                     else
                     {
                         // If not a gun then it could be from a grenade or a melee attack, either way, just assume that the "value" parameter is the damage value:
-                        finalDamage = value;
+                        finalDamage = weaponID;
+                        
+                        //pull back force
+                        ApplyPullBackCommand(fromDirection, weaponID * 10);
                     }
 
                     // Now do the damage application:
@@ -681,6 +695,9 @@ namespace Visyde
                         gm.ui.Hurt();
                     }
                     lastDamageDealer = gm.GetPlayerInstance(fromPlayer);
+                    
+                    
+                    
                 }
             }
         }

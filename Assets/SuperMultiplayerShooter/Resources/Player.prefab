@@ -561,6 +561,7 @@ MonoBehaviour:
   rg: {fileID: 50395683206262458}
   moveSpeed: 6
   jumpForce: 17
+  forceTime: 0.5
   isMine: 0
 --- !u!114 &5732537548818131023
 MonoBehaviour:
@@ -588,7 +589,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   botID: 0
-  aggressiveness: 5
+  aggressiveness: 9
   sightRange: 5
   maxJumpHeight: 2
   maxJumpDistance: 3.12
