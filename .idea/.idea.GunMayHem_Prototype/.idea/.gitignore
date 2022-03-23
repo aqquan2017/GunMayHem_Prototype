@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/projectSettingsUpdater.xml
+/contentModel.xml
+/.idea.GunMayHem_Prototype.iml
+# Datasource local storage ignored files
+/../../../../../../../:\OneDrive\Unity\GunMayHem_Prototype\.idea\.idea.GunMayHem_Prototype\.idea/dataSources/
+/dataSources.local.xml
