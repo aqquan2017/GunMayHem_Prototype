@@ -56,6 +56,11 @@ namespace Visyde
                             {
                                 //p.photonView.RPC("Hurt", RpcTarget.All, ourPlayer.playerInstance.playerID, damage, false); 
                                 p.ApplyDamage(ourPlayer.playerInstance.playerID , 0 ,false, transform.right);
+
+                                var movement = transform.parent.GetComponent<MovementController>().moveSpeed;
+                                //apply force
+                                p.ApplyPullBack(movement > 0 ? Vector2.right : Vector2.left, 700);
+                                
                                 // VFX
                                 GameManager.instance.pooler.Spawn("BodyHit", p.transform.position);
                             }
