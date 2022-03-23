@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
@@ -70,6 +71,33 @@ namespace Visyde
                             photonView.RPC("Picked", RpcTarget.All);
                             PhotonNetwork.Destroy(photonView);
                         }
+                        Destroy(gameObject);
+                    }
+                }
+            }
+        }
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {
+            if (allowPickup)
+            {
+                if (other.gameObject.CompareTag("Player"))
+                {
+                    PlayerController p = other.gameObject.GetComponent<PlayerController>();
+                    if (p)
+                    {
+                        allowPickup = false;
+
+                        // Sound and VFX:
+                        Instantiate(pickUpEffect, transform.position, Quaternion.identity);
+
+                        if (PhotonNetwork.IsMasterClient)
+                        {
+                            p.photonView.RPC("GrabWeapon", RpcTarget.AllViaServer, (int)data[0], (int)data[1]);
+                            photonView.RPC("Picked", RpcTarget.All);
+                            PhotonNetwork.Destroy(photonView);
+                        }
+                        Destroy(gameObject);
                     }
                 }
             }
