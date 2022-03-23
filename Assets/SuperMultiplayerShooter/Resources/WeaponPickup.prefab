@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 58037761019953004}
   - component: {fileID: 114929057452788022}
   - component: {fileID: 114321698984080962}
+  - component: {fileID: -8218685959603616623}
   m_Layer: 0
   m_Name: WeaponPickup
   m_TagString: Pickup
@@ -87,6 +88,27 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: -1
   isRuntimeInstantiated: 0
+--- !u!50 &-8218685959603616623
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097501120205964}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0.2
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 5
 --- !u!1 &1967295726659718
 GameObject:
   m_ObjectHideFlags: 0

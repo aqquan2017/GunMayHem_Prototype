@@ -240,7 +240,7 @@ MonoBehaviour:
   sightRange: 4
   weaponKickbackAmount: 0.1
   playerKickBackAmount: 3
-  enemyKickBackAmount: 10000
+  enemyKickBackAmount: 7000
   projectileLifetime: 0
   shoot:
   - {fileID: 8300000, guid: 69255445e54a9f64cbeab516c3d9da1b, type: 3}
