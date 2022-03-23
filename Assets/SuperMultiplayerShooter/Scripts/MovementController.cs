@@ -165,10 +165,10 @@ namespace Visyde
             //allowJump = false;
         }
 
-        public void ApplyForce(Vector2 direction){
+        public void ApplyForce(Vector2 direction, ForceMode2D forceMode = ForceMode2D.Impulse){
             if (!rg) return;
             forceTime = 0.5f;
-            rg.AddForce(direction , ForceMode2D.Impulse);
+            rg.AddForce(direction , forceMode);
         }
     
 

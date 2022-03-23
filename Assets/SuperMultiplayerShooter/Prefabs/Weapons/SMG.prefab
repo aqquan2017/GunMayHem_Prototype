@@ -200,7 +200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 8
   ammo: 60
-  rateOfFire: 15
+  rateOfFire: 13
   numberOfProjectilesPerShot: 1
   projectileSpeed: 10
   projectileAcceleration: 15
@@ -209,7 +209,7 @@ MonoBehaviour:
   sightRange: 1
   weaponKickbackAmount: 0.1
   playerKickBackAmount: 0.3
-  enemyKickBackAmount: 5
+  enemyKickBackAmount: 400
   projectileLifetime: 0
   shoot:
   - {fileID: 8300000, guid: ba95f86db27cd804e9527a05210d31ac, type: 3}

@@ -528,7 +528,7 @@ namespace Visyde
         [PunRPC]
         public void ApplyPullBack(Vector2 fromDirection,float recoilSpeed)
         {
-            movementController.ApplyForce(fromDirection * recoilSpeed);
+            movementController.ApplyForce(fromDirection * recoilSpeed, ForceMode2D.Force);
         }
         public void OwnerShootCommand(){
             photonView.RPC("Shoot", RpcTarget.All, mousePos, movementController.position, movementController.velocity);
@@ -650,7 +650,7 @@ namespace Visyde
 
                         // ...then get the weapon's damage value:
                         finalDamage = weaponUsed.damage;
-                        
+                        Debug.Log(weaponUsed.enemyKickBackAmount);
                         //force back by gun bullet
                         ApplyPullBackCommand(fromDirection, weaponUsed.enemyKickBackAmount);
                     }
@@ -660,7 +660,7 @@ namespace Visyde
                         finalDamage = weaponID;
                         
                         //pull back force
-                        ApplyPullBackCommand(fromDirection, weaponID * 10);
+                        ApplyPullBackCommand(fromDirection, Mathf.Abs(finalDamage * 50));
                     }
 
                     // Now do the damage application:
