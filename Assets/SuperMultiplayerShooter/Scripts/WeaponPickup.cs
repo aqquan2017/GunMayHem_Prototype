@@ -37,7 +37,7 @@ namespace Visyde
             if ((int)data[1] != -1) itemHandled = gm.maps[gm.chosenMap].weaponSpawnPoints[(int)data[1]].onlySpawnThisHere;
 
             // Visual:
-            itemGraphic.sprite = itemHandled.spriteRenderer.sprite;
+            //itemGraphic.sprite = itemHandled.spriteRenderer.sprite;
         }
 
         void Update()
