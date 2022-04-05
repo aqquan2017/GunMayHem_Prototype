@@ -233,7 +233,7 @@ MonoBehaviour:
   ammo: 12
   rateOfFire: 0.9
   numberOfProjectilesPerShot: 5
-  projectileSpeed: 10
+  projectileSpeed: 15
   projectileAcceleration: 15
   spread: 12
   destroyProjectileWhenOwnerDies: 0

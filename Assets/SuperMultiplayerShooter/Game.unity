@@ -7631,26 +7631,14 @@ MonoBehaviour:
     onlySpawnThisHere: {fileID: 0}
   - point: {fileID: 642247480}
     onlySpawnThisHere: {fileID: 0}
-  powerUpSpawnPoints:
-  - point: {fileID: 67678929}
-    onlySpawnThisHere: {fileID: 11400000, guid: 9598ca44e025aa14ea3aaa49096f7895, type: 2}
-  - point: {fileID: 66224915}
-    onlySpawnThisHere: {fileID: 11400000, guid: 9598ca44e025aa14ea3aaa49096f7895, type: 2}
-  - point: {fileID: 1646075951}
-    onlySpawnThisHere: {fileID: 11400000, guid: 9598ca44e025aa14ea3aaa49096f7895, type: 2}
-  - point: {fileID: 1137795956}
-    onlySpawnThisHere: {fileID: 11400000, guid: 13bee1001581b1c4aa1bc8e92b547d15, type: 2}
-  - point: {fileID: 41543693}
-    onlySpawnThisHere: {fileID: 0}
+  powerUpSpawnPoints: []
   spawnableWeapons:
   - {fileID: 114469809127564400, guid: 066bf578910ef744e8e4f95d30b8202d, type: 3}
   - {fileID: 114245578955462002, guid: e8a42a28840df5e4c9eb9f6249ae16b9, type: 3}
   - {fileID: 114914572192278892, guid: fc28f2ca84cf62d42b9c51bb1d6354c7, type: 3}
   - {fileID: 114337866411543248, guid: 26a7c91c2de0e0c48b21b7a2727102e4, type: 3}
   - {fileID: 114575684155971518, guid: f486fef1efddb5340b48583c1f3820a7, type: 3}
-  spawnablePowerUps:
-  - {fileID: 11400000, guid: 142ddfa634d04804eb348621a4535b3b, type: 2}
-  - {fileID: 11400000, guid: af4ee599a5f5234438866e661551caac, type: 2}
+  spawnablePowerUps: []
   deadZoneVFX: {fileID: 1421450803725938, guid: a105db480dc1818459825301b0bb73e9, type: 3}
   bounds: {x: 15.29, y: 8.9}
   boundOffset: {x: 0, y: 3.9}
