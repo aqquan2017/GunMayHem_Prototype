@@ -7648,7 +7648,6 @@ MonoBehaviour:
   - {fileID: 114914572192278892, guid: fc28f2ca84cf62d42b9c51bb1d6354c7, type: 3}
   - {fileID: 114337866411543248, guid: 26a7c91c2de0e0c48b21b7a2727102e4, type: 3}
   - {fileID: 114575684155971518, guid: f486fef1efddb5340b48583c1f3820a7, type: 3}
-  - {fileID: 114914572192278892, guid: 12d3f76de0fec6846a22112322c09fee, type: 3}
   spawnablePowerUps:
   - {fileID: 11400000, guid: 142ddfa634d04804eb348621a4535b3b, type: 2}
   - {fileID: 11400000, guid: af4ee599a5f5234438866e661551caac, type: 2}
@@ -9168,7 +9167,6 @@ MonoBehaviour:
   - {fileID: 114914572192278892, guid: fc28f2ca84cf62d42b9c51bb1d6354c7, type: 3}
   - {fileID: 114337866411543248, guid: 26a7c91c2de0e0c48b21b7a2727102e4, type: 3}
   - {fileID: 114575684155971518, guid: f486fef1efddb5340b48583c1f3820a7, type: 3}
-  - {fileID: 114914572192278892, guid: 12d3f76de0fec6846a22112322c09fee, type: 3}
   spawnablePowerUps:
   - {fileID: 11400000, guid: 142ddfa634d04804eb348621a4535b3b, type: 2}
   - {fileID: 11400000, guid: af4ee599a5f5234438866e661551caac, type: 2}
