@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: f27e52ce438d5554abee1aaafc2dc979, type: 3}
   maxHealth: 10000
   moveSpeed: 55
-  jumpForce: 12
+  jumpForce: 10
   startingWeapon: {fileID: 114469809127564400, guid: 066bf578910ef744e8e4f95d30b8202d, type: 3}
   grenades: 3
   footstepSFX:
