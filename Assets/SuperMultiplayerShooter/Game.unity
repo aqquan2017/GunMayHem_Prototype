@@ -38261,9 +38261,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: Player
   maps:
-  - {fileID: 510858821}
-  - {fileID: 810666554}
-  - {fileID: 703864069}
   - {fileID: 317976058}
   chosenMap: 0
   useMobileControls: 0

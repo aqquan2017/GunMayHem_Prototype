@@ -9565,15 +9565,6 @@ MonoBehaviour:
   items:
   - name: 
     value: 0
-    icon: {fileID: 21300000, guid: fdcea6bb5b17980449633cd0fbdb396d, type: 3}
-  - name: 
-    value: 0
-    icon: {fileID: 21300000, guid: 40989c42b173e7048933cb9cd8cd8e63, type: 3}
-  - name: 
-    value: 0
-    icon: {fileID: 21300000, guid: 256fd176129083946a0522e2efe6cf92, type: 3}
-  - name: 
-    value: 0
     icon: {fileID: 21300000, guid: ba0babbdf9c757c45829fb6ab4af3284, type: 3}
   loop: 0
   next: {fileID: 846039176}
