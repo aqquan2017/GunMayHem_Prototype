@@ -1422,7 +1422,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 8
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
@@ -7102,8 +7102,8 @@ MonoBehaviour:
   xFollowSpeed: 7
   yFollowSpeed: 7
   followOffset: {x: 0, y: 0}
-  normalZoom: 4
-  noPlayerZoom: 6
+  normalZoom: 6
+  noPlayerZoom: 8
   zoomChangeFactor: 0
   zoomSpeed: 5
   shakeDamping: 1
