@@ -70,7 +70,7 @@ namespace Visyde
                 if (enableMoveStickJumping && (y >= jumpingYStart && moveStick.progress >= jumpingThreshold)) Jump();
             }
             else{
-                if (Input.GetButton("Jump")) Jump();
+                if (Input.GetButtonDown("Jump")) Jump();
             }
 
             // Shooting input:

@@ -23,7 +23,7 @@ namespace Visyde
                 PlayerController p = col.GetComponent<PlayerController>();
                 if (p)
                 {
-                    if (p.photonView.IsMine && !p.isOnJumpPad)
+                    if (p.photonView.IsMine )
                     {
                         // Let the player know that they're on a jump pad:
                         p.isOnJumpPad = true;

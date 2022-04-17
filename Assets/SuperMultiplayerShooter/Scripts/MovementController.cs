@@ -26,7 +26,11 @@ namespace Visyde
         // as they will be overriden by the character data anyway:
         [HideInInspector] public float moveSpeed;
         [HideInInspector] public float jumpForce;
+        [HideInInspector] public float jumpForce2;
         [HideInInspector] public float forceTime = 0.5f;
+
+        public const int numberOfExtraJump = 1;
+        public int extraJumpCount = 1; //1 is default
 
         [HideInInspector] public bool isMine;
         public bool allowJump { get; protected set; }
@@ -104,14 +108,18 @@ namespace Visyde
                 groundCheckerOffset + new Vector2(transform.position.x, transform.position.y), groundCheckerRadius);
             for (int i = 0; i < cols.Length; i++)
             {
-                if (cols[i].CompareTag("JumpPad"))
+                if (cols[i].CompareTag("JumpPad") && extraJumpCount < 1)
                 {
                     allowJump = false;
                 }
 
                 if (cols[i].gameObject != gameObject && !cols[i].isTrigger && !cols[i].CompareTag("Portal"))
                 {
-                    if (!isGrounded) isGrounded = true;
+                    if (!isGrounded)
+                    {
+                        isGrounded = true;
+                        extraJumpCount = numberOfExtraJump;
+                    }
                 }
             }
 
@@ -148,7 +156,7 @@ namespace Visyde
         // For local movement controlling: 
         public void InputMovement(float x)
         {
-            // Movement input:
+            // Movement input:f
             inputX = x;
         }
 
@@ -163,6 +171,7 @@ namespace Visyde
             // Don't allow jumping right after a jump:
             //NOW ALLOW DOUBLE JUMP
             //allowJump = false;
+            extraJumpCount--;
         }
 
         public void ApplyForce(Vector2 direction, ForceMode2D forceMode = ForceMode2D.Impulse){

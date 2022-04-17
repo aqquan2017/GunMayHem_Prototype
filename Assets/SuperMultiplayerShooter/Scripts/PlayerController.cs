@@ -490,7 +490,7 @@ namespace Visyde
         {
             if (!gm.gameStarted || gm.isGameOver) return;
 
-            if (!isOnJumpPad && movementController.isGrounded && movementController.allowJump)
+            if (movementController.isGrounded || movementController.allowJump)
             {
                 // Call jump in character controller:
                 movementController.Jump();
