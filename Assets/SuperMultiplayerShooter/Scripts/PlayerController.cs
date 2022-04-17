@@ -291,7 +291,8 @@ namespace Visyde
                 Vector3 diff = mousePos - weaponHandler.position;
                 diff.Normalize();
                 float rot_z = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
-                weaponHandler.rotation = Quaternion.Euler(0f, 0f, rot_z + (t.localScale.x == -1 ? 180 : 0));
+                //fix gun rotation
+                //weaponHandler.rotation = Quaternion.Euler(0f, 0f, rot_z + (t.localScale.x == -1 ? 180 : 0));
             }
 
             // Handling death:
