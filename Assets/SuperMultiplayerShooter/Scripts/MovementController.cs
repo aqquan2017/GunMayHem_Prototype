@@ -108,7 +108,7 @@ namespace Visyde
                 groundCheckerOffset + new Vector2(transform.position.x, transform.position.y), groundCheckerRadius);
             for (int i = 0; i < cols.Length; i++)
             {
-                if (cols[i].CompareTag("JumpPad") && extraJumpCount < 1)
+                if (cols[i].CompareTag("JumpPad") || extraJumpCount < 1)
                 {
                     allowJump = false;
                 }
