@@ -21,6 +21,7 @@ namespace Visyde
 
         [Space] [Header("References:")] [SerializeField]
         private Rigidbody2D rg;
+        private CapsuleCollider2D rgCapsuleCollider2D;
 
         // The movement speed and jump force doesn't need to be set manually 
         // as they will be overriden by the character data anyway:
@@ -81,6 +82,7 @@ namespace Visyde
         void Awake()
         {
             if (!rg) rg = GetComponent<Rigidbody2D>();
+            if (!rgCapsuleCollider2D) rgCapsuleCollider2D = GetComponent<CapsuleCollider2D>();
         }
 
         void Update()
@@ -172,6 +174,19 @@ namespace Visyde
             //NOW ALLOW DOUBLE JUMP
             //allowJump = false;
             extraJumpCount--;
+        }
+
+        public void DisableColliderWithPlatform(float time)
+        {
+            StopCoroutine("DisableCollider");
+            StartCoroutine(DisableCollider(time));
+        }
+        
+        IEnumerator DisableCollider(float time)
+        {
+            rgCapsuleCollider2D.isTrigger = true;
+            yield return new WaitForSeconds(time);
+            rgCapsuleCollider2D.isTrigger = false;
         }
 
         public void ApplyForce(Vector2 direction, ForceMode2D forceMode = ForceMode2D.Impulse){

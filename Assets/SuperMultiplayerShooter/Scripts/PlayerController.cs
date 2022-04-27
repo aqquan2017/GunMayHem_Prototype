@@ -256,6 +256,11 @@ namespace Visyde
                     {
                         curMultikill = 0;
                     }
+
+                    if (Input.GetKeyDown(KeyCode.S) && movementController.isGrounded)
+                    {
+                        movementController.DisableColliderWithPlatform(0.3f);
+                    }
                 }
                 else
                 {
