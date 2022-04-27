@@ -39,32 +39,40 @@ namespace Visyde
 
             nextWeaponSpawnIn = new double[currentWeaponSpawns.Length];
             nextPowerUpSpawnIn = new double[currentPowerUpSpawns.Length];
+            
+            InvokeRepeating("SpawnWeapons" , 0f, 10f);
+        }
+
+        void SpawnWeapons()
+        {
+            int id = Random.Range(0, nextWeaponSpawnIn.Length);
+            SpawnWeapon(id);
         }
 
         // Update is called once per frame
-        void Update()
-        {
-            if (PhotonNetwork.IsMasterClient && gm.gameStarted && !gm.isGameOver)
-            {
-                // Spawn weapons:
-                for (int i = 0; i < nextWeaponSpawnIn.Length; i++)
-                {
-                    if (PhotonNetwork.Time >= nextWeaponSpawnIn[i])
-                    {
-                        SpawnWeapon(i);
-                    }
-                }
-
-                // Spawn power-ups:
-                for (int i = 0; i < nextPowerUpSpawnIn.Length; i++)
-                {
-                    if (PhotonNetwork.Time >= nextPowerUpSpawnIn[i])
-                    {
-                        SpawnPowerUp(i);
-                    }
-                }
-            }
-        }
+        // void Update()
+        // {
+        //     if (PhotonNetwork.IsMasterClient && gm.gameStarted && !gm.isGameOver)
+        //     {
+        //         // Spawn weapons:
+        //         for (int i = 0; i < nextWeaponSpawnIn.Length; i++)
+        //         {
+        //             if (PhotonNetwork.Time >= nextWeaponSpawnIn[i])
+        //             {
+        //                 SpawnWeapon(i);
+        //             }
+        //         }
+        //
+        //         // Spawn power-ups:
+        //         for (int i = 0; i < nextPowerUpSpawnIn.Length; i++)
+        //         {
+        //             if (PhotonNetwork.Time >= nextPowerUpSpawnIn[i])
+        //             {
+        //                 SpawnPowerUp(i);
+        //             }
+        //         }
+        //     }
+        // }
 
         // Updates the next weapon spawn time.
         void MarkWhenToSpawnNextWeapon(int index)
