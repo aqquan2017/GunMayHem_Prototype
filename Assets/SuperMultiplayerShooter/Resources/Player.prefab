@@ -561,7 +561,9 @@ MonoBehaviour:
   rg: {fileID: 50395683206262458}
   moveSpeed: 6
   jumpForce: 17
+  jumpForce2: 0
   forceTime: 0.5
+  extraJumpCount: 1
   isMine: 0
 --- !u!114 &5732537548818131023
 MonoBehaviour:

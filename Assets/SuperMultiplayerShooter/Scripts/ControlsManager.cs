@@ -70,7 +70,7 @@ namespace Visyde
                 if (enableMoveStickJumping && (y >= jumpingYStart && moveStick.progress >= jumpingThreshold)) Jump();
             }
             else{
-                if (Input.GetButtonDown("Jump")) Jump();
+                if (Input.GetKeyDown(KeyCode.W)) Jump();
             }
 
             // Shooting input:
@@ -84,7 +84,7 @@ namespace Visyde
             }
         }
         void LateUpdate(){
-            shoot = mobileControls? shootStick.progress >= shootingThreshold && shootStick.isHolding : Input.GetButton("Fire1");
+            shoot = mobileControls? shootStick.progress >= shootingThreshold && shootStick.isHolding :  Input.GetKey(KeyCode.J);
         }
 
         // Jumping (can be called by an on-screen button):

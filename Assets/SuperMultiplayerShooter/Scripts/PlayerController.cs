@@ -285,7 +285,11 @@ namespace Visyde
                 weaponHandler.gameObject.SetActive(!meleeWeapon.isAttacking);
 
                 // Flipping:
-                t.localScale = new Vector3(mousePos.x > t.position.x ? 1 : mousePos.x < t.position.x ? -1 : t.localScale.x, 1, 1);
+                // t.localScale = new Vector3(mousePos.x > t.position.x ? 1 : mousePos.x < t.position.x ? -1 : t.localScale.x
+                //     , 1, 1);
+
+                t.localScale = new Vector3(xInput > 0 ? 1 : xInput < 0 ? -1 : t.localScale.x
+                    , 1, 1);
 
                 // Since we're syncing everyone's mouse position across the network, we can just do the aiming locally:
                 Vector3 diff = mousePos - weaponHandler.position;
@@ -382,13 +386,13 @@ namespace Visyde
                     shooting = gm.controlsManager.shoot;
 
                     // Melee:
-                    if (!gm.useMobileControls && Input.GetButtonDown("Fire2"))
+                    if (!gm.useMobileControls &&  Input.GetKeyDown(KeyCode.L))
                     {
                         OwnerMeleeAttack();
                     }
 
                     // Grenade throw:
-                    if (!gm.useMobileControls && Input.GetButtonDown("Fire3"))
+                    if (!gm.useMobileControls && Input.GetKeyDown(KeyCode.K))
                     {
                         OwnerThrowGrenade();
                     }
